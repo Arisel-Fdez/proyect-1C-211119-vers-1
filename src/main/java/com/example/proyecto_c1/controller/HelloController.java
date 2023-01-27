@@ -85,24 +85,24 @@ public class HelloController implements Observer {
         C3 = new Enemigos(3);
         C3.addObserver(this);
         C3.setPosicion(420,3, 250);
-        Thread hilo4 = new Thread(C3);
-        hilo4.setDaemon(true);
-        hilo4.start();
+        Thread hilo3 = new Thread(C3);
+        hilo3.setDaemon(true);
+        hilo3.start();
 
         C4 = new Enemigos(4);
         C4.addObserver(this);
         C4.setPosicion(420,4, 250);
-        Thread hilo5 = new Thread(C3);
-        hilo5.setDaemon(true);
-        hilo5.start();
+        Thread hilo4 = new Thread(C3);
+        hilo4.setDaemon(true);
+        hilo4.start();
 
 
         P1 = new Personaje(5);
         P1.addObserver((this));
         P1.setPosicion(461 ,5);
-        Thread hilo3 = new Thread(P1);
-        hilo3.setDaemon(true);
-        hilo3.start();
+        Thread hilo5 = new Thread(P1);
+        hilo5.setDaemon(true);
+        hilo5.start();
 
 
         System.out.println(idpersona.getLayoutY());
