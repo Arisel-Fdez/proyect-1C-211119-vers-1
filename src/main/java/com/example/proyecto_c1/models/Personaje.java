@@ -8,6 +8,7 @@ public class Personaje extends Observable implements Runnable{
     private boolean status = true;
 
     private boolean arriba = false;
+    private boolean abajo = false;
 
 
     public void setArriba() {
@@ -20,6 +21,18 @@ public class Personaje extends Observable implements Runnable{
 
     public Personaje() {
     }
+
+
+    public void setAbajo() {
+        pos.setX(pos.getX() -1) ;
+    }
+
+    public void setAbajo(boolean abajo) {
+        this.abajo = abajo;
+    }
+
+
+
 
     public Personaje(int id) {
         this.id = id;
@@ -43,9 +56,22 @@ public class Personaje extends Observable implements Runnable{
                 arriba = false;
             }
         }
+
+        while (status) {
+            this.setChanged();
+            this.notifyObservers(this.pos);
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {}
+            if (abajo  == true){
+                pos.setX(pos.getX() -20);
+                abajo = false;
+            }
+        }
     }
 
     public void setStatus (boolean status){
         this.status = status;
     }
+
 }

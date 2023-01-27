@@ -55,7 +55,8 @@ public class HelloController implements Observer {
 
     @FXML
     void AbajoOnMouse(MouseEvent event) {
-
+        P1.setAbajo();
+        P1.setAbajo(true);
     }
 
     @FXML
