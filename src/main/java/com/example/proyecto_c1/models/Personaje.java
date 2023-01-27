@@ -12,7 +12,7 @@ public class Personaje extends Observable implements Runnable{
 
 
     public void setArriba() {
-        pos.setX(pos.getX() - 1) ;
+        pos.setX(pos.getX() -1) ;
     }
 
     public void setArriba(boolean arriba) {
@@ -64,7 +64,7 @@ public class Personaje extends Observable implements Runnable{
                 Thread.sleep(10);
             } catch (InterruptedException e) {}
             if (abajo  == true){
-                pos.setX(pos.getX() -20);
+                pos.setX(pos.getX() -200);
                 abajo = false;
             }
         }
