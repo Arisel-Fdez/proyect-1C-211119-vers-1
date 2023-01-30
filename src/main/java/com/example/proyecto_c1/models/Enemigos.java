@@ -37,11 +37,6 @@ public class Enemigos extends Observable implements Runnable {
                 distanciax *= -1;
             if (pos.getX() <= 0)
                 distanciax *= -1;
-
-           // if (pos.getY() >= 1011)
-             //   distanciaY *= -1;
-            //if (pos.getY() <= 0);
-              //  distanciaY *= -1;
         }
     }
     public void setStatus (boolean status){

@@ -19,7 +19,6 @@ public class HelloController implements Observer {
     private Enemigos C1;
     private Enemigos C2;
     private Enemigos C3;
-    private Enemigos C4;
     private Personaje P1;
 
 
@@ -50,13 +49,11 @@ public class HelloController implements Observer {
     @FXML
     private ImageView idenemigo3;
 
-    @FXML
-    private ImageView idenemigo4;
 
     @FXML
     void AbajoOnMouse(MouseEvent event) {
         P1.setAbajo();
-        P1.setAbajo(true);
+        P1.setAbajo(false);
     }
 
     @FXML
@@ -89,17 +86,10 @@ public class HelloController implements Observer {
         hilo3.setDaemon(true);
         hilo3.start();
 
-        C4 = new Enemigos(4);
-        C4.addObserver(this);
-        C4.setPosicion(420,4, 250);
-        Thread hilo4 = new Thread(C3);
-        hilo4.setDaemon(true);
-        hilo4.start();
 
-
-        P1 = new Personaje(5);
+        P1 = new Personaje(4);
         P1.addObserver((this));
-        P1.setPosicion(461 ,5);
+        P1.setPosicion(461 ,4);
         Thread hilo5 = new Thread(P1);
         hilo5.setDaemon(true);
         hilo5.start();
@@ -107,15 +97,6 @@ public class HelloController implements Observer {
 
         System.out.println(idpersona.getLayoutY());
 
-
-    }
-
-    @FXML
-    void ReiniciarOnMouse(MouseEvent event) {
-        P1.setStatus(false);
-        C1.setStatus(false);
-        C2.setStatus(false);
-        P1.setPosicion(554 ,3);
 
     }
 
@@ -139,9 +120,6 @@ public class HelloController implements Observer {
                 Platform.runLater(() ->  idenemigo3.setLayoutX(pos1.getX()));
                 break;
             case 4:
-                Platform.runLater(() ->  idenemigo4.setLayoutX(pos1.getX()));
-                break;
-            case 5:
                 Platform.runLater(() ->  {
                             idpersona.setLayoutY(pos1.getX());
                             HelloApplication.stage.sizeToScene();
@@ -155,7 +133,6 @@ public class HelloController implements Observer {
             C1.setStatus(false);
             C2.setStatus(false);
             C3.setStatus(false);
-            C4.setStatus(false);
         }
 
         if (idpersona.getBoundsInParent().intersects(idenemigo1.getBoundsInParent())){
@@ -163,28 +140,20 @@ public class HelloController implements Observer {
             C1.setStatus(false);
             C2.setStatus(false);
             C3.setStatus(false);
-            C4.setStatus(false);
         }
         if (idpersona.getBoundsInParent().intersects(idenemigo3.getBoundsInParent())){
             P1.setStatus(false);
             C1.setStatus(false);
             C2.setStatus(false);
             C3.setStatus(false);
-            C4.setStatus(false);
         }
-        if (idpersona.getBoundsInParent().intersects(idenemigo4.getBoundsInParent())){
+
+        if (idpersona.getLayoutY() <= 14){
             P1.setStatus(false);
             C1.setStatus(false);
             C2.setStatus(false);
             C3.setStatus(false);
-            C4.setStatus(false);
         }
-
-      /*  if (idpersona.getLayoutY() <= 14){
-            P1.setStatus(false);
-            C1.setStatus(false);
-            C2.setStatus(false);
-        }*/
 
 
 
